@@ -28,7 +28,7 @@ Is my code working as intended?
 ## Query Tests
 
 1. Add a `conftest.py` in the root of your project.
-2. Add a `graphql_query` fixture (have a look [here](https://docs.graphene-python.org/projects/django/en/latest/testing/#using-pytest)).
+2. Add a `client_query` fixture (have a look [here](https://docs.graphene-python.org/projects/django/en/latest/testing/#using-pytest)).
 3. Add a fixture for a cuisine inside `food/tests.py`.
    - Do not forget to mark its DB usage (i.e., `@pytest.mark.django_db`).
 4. Test that querying for a single cuisine with your `cuisine id` (use the fixture to retrieve the id) matches your response.
@@ -45,3 +45,10 @@ Is my code working as intended?
 1. Add an `Ingredient` fixture in `food/tests.py`.
 2. Use `hypothesis` to generate random `name` and `steps`.
 3. Test that the `UpdateIngredient` mutation has the new `name` and `steps` generated, but all the other attributes match what was in the fixture.
+
+## File Upload Tests
+
+1. Update your `client_query` fixture so that it uses `file_graphql_query` if `files` was passed in `kwargs`, otherwise use `graphql_query` like before.
+2. Add a mutation test for `CreateCuisine` that:
+   - Checks if passing in a `banner` returns a `banner` in the response.
+   - Checks that omitting `banner` returns `None` in the response for `banner`.
