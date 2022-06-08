@@ -11,6 +11,7 @@ class Ingredient(models.Model):
 
 class Cuisine(models.Model):
     name = models.CharField(max_length=30)
+    banner = models.ImageField(null=True, blank=True)
 
     def __str__(self) -> str:
         return str(self.name)

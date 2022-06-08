@@ -2,6 +2,7 @@ from typing import Any, Union
 
 import graphene
 from django.db.utils import IntegrityError
+from graphene_file_upload.scalars import Upload
 from graphql import GraphQLError
 
 from food.models import Cuisine, Ingredient, Recipe
@@ -75,6 +76,7 @@ class CreateCuisine(graphene.Mutation):
 
     class Arguments:
         name = graphene.String(required=True)
+        banner = Upload()
 
     def mutate(
         root, info: graphene.ResolveInfo, **kwargs: Any
@@ -89,6 +91,7 @@ class UpdateCuisine(graphene.Mutation):
     class Arguments:
         id = graphene.Int(required=True)
         name = graphene.String()
+        banner = Upload()
 
     def mutate(
         root, info: graphene.ResolveInfo, **kwargs: Any
