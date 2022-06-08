@@ -36,7 +36,7 @@ Is my code working as intended?
 
 ## Mutation Tests
 
-1. Install `hypothesis` using `poetry add hypothesis`.
+1. Install `hypothesis` using `poetry add 'hypothesis[django]'`.
 2. Add a string strategy for `name` and `origin`.
 3. Test the `CreateIngredient` mutation works with the `name` and `origin` supplied.
 
