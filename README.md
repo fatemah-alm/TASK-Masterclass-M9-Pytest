@@ -52,3 +52,5 @@ Is my code working as intended?
 2. Add a mutation test for `CreateCuisine` that:
    - Checks if passing in a `banner` returns a `banner` in the response.
    - Checks that omitting `banner` returns `None` in the response for `banner`.
+
+**HINT:** Remember to use `SimpleUploadedFile` imported from `django.core.files.uploadedfile` to generate your files.
