@@ -217,6 +217,23 @@ rest_framework = ["djangorestframework (>=3.6.3)"]
 test = ["pytest (>=3.6.3)", "pytest-cov", "coveralls", "mock", "pytz", "pytest-django (>=3.3.2)", "djangorestframework (>=3.6.3)", "django-filter (<2)", "django-filter (>=2)"]
 
 [[package]]
+name = "graphene-file-upload"
+version = "1.3.0"
+description = "Lib for adding file upload functionality to GraphQL mutations in Graphene Django and Flask-Graphql"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+six = ">=1.11.0"
+
+[package.extras]
+all = ["Flask (>=1.0.2)", "graphene (>=2.1.2)", "Flask-Graphql (>=2.0.0)", "graphene-django (>=2.0.0)"]
+django = ["graphene-django (>=2.0.0)"]
+flask = ["Flask (>=1.0.2)", "graphene (>=2.1.2)", "Flask-Graphql (>=2.0.0)"]
+tests = ["coverage", "pytest", "pytest-cov", "pytest-django"]
+
+[[package]]
 name = "graphql-core"
 version = "2.3.2"
 description = "GraphQL implementation for Python"
@@ -566,7 +583,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "45e6334d08e860e05cf6911018553772cb8070e1020058f80b94c9b373639a97"
+content-hash = "b1c770e8efb273bcbed1db9e073f020fb4d218189e07f4875e693eca12534999"
 
 [metadata.files]
 aniso8601 = [
@@ -691,6 +708,10 @@ graphene = [
 graphene-django = [
     {file = "graphene-django-2.15.0.tar.gz", hash = "sha256:b78c9b05bc899016b9cc5bf13faa1f37fe1faa8c5407552c6ddd1a28f46fc31a"},
     {file = "graphene_django-2.15.0-py2.py3-none-any.whl", hash = "sha256:02671d195f0c09c8649acff2a8f4ad4f297d0f7d98ea6e6cdf034b81bab92880"},
+]
+graphene-file-upload = [
+    {file = "graphene_file_upload-1.3.0-py3-none-any.whl", hash = "sha256:5afe50f409f50e3d198fd92c883d98d868e6c6aaadf5df3a3f4d88ecad90ed97"},
+    {file = "graphene_file_upload-1.3.0.tar.gz", hash = "sha256:6898480b0556826472c80971032917c01968ade5800d84054008fe598795b063"},
 ]
 graphql-core = [
     {file = "graphql-core-2.3.2.tar.gz", hash = "sha256:aac46a9ac524c9855910c14c48fc5d60474def7f99fd10245e76608eba7af746"},
