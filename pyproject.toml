@@ -1,0 +1,101 @@
+[tool.poetry]
+name = "recipes"
+version = "0.1.0"
+description = ""
+authors = []
+
+[tool.poetry.scripts]
+manage = "manage:main"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Django = "<4"
+django-cors-headers = "^3.12.0"
+graphene-django = "^2.15.0"
+
+[tool.poetry.dev-dependencies]
+black = "^22.3.0"
+isort = "^5.10.1"
+django-stubs = "^1.11.0"
+mypy = "0.950"
+pylint = "^2.14.1"
+pytest = "^7.1.2"
+pytest-cov = "^3.0.0"
+pytest-django = "^4.5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 79
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+      \.eggs
+    | \.git
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+  )/
+)
+'''
+
+[tool.isort]
+multi_line_output = 3
+lines_after_imports = 2
+force_grid_wrap = 0
+combine_as_imports = true
+include_trailing_comma = true
+
+[tool.mypy]
+plugins = "mypy_django_plugin.main"
+ignore_missing_imports = true
+strict_optional = true
+follow_imports = "silent"
+warn_redundant_casts = true
+warn_unused_ignores = true
+check_untyped_defs = true
+disallow_untyped_defs = true
+disallow_any_generics = true
+show_error_codes = true
+
+[tool.django-stubs]
+django_settings_module = "recipes.settings"
+
+[tool.pylint.message_control]
+disable = '''
+  attribute-defined-outside-init,
+  duplicate-code,
+  invalid-name,
+  missing-docstring,
+  protected-access,
+  too-few-public-methods,
+  no-member,
+  raise-missing-from,
+  no-self-argument,
+  unused-argument,
+  fixme,
+  unsubscriptable-object,
+  redefined-outer-name,
+  inherit-non-class,
+  import-outside-toplevel,
+  too-many-ancestors,
+  cyclic-import,
+  format,
+  wrong-import-order
+'''
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "recipes.settings"
+python_files = "tests.py test_*.py *_tests.py"
+addopts = "--cov=. --no-cov-on-fail --cov-report term-missing:skip-covered"
+
+[tool.coverage.run]
+omit = []
