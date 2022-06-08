@@ -11,7 +11,7 @@ Is my code working as intended?
 
 ## Configuration
 
-1. Install `python-decouple` and `dj_database_url`.
+1. Install `python-decouple` and `dj_database_url` using poetry add `poetry add python-decouple dj_database_url`.
 2. Update your django settings.
    1. Change `DEBUG` to read from the environment variables and default to `False`.
    2. Update your secret key to read from your environment variables (do not default to anything).
