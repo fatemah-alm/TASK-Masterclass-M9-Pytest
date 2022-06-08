@@ -24,3 +24,24 @@ Is my code working as intended?
    - Add `DEBUG` to be `True`.
    - Add a `SECRET_KEY` (use `openssl rand -hex 32` to generate a key).
    - Add your database url.
+
+## Query Tests
+
+1. Add a `conftest.py` in the root of your project.
+2. Add a `graphql_query` fixture (have a look [here](https://docs.graphene-python.org/projects/django/en/latest/testing/#using-pytest)).
+3. Add a fixture for a cuisine inside `food/tests.py`.
+   - Do not forget to mark its DB usage (i.e., `@pytest.mark.django_db`).
+4. Test that querying for a single cuisine with your `cuisine id` (use the fixture to retrieve the id) matches your response.
+5. Test that querying for all cuisines has your `cuisine` fixture in the response.
+
+## Mutation Tests
+
+1. Install `hypothesis` using `poetry add hypothesis`.
+2. Add a string strategy for `name` and `origin`.
+3. Test the `CreateIngredient` mutation works with the `name` and `origin` supplied.
+
+## Mutation Tests Bonus
+
+1. Add an `Ingredient` fixture in `food/tests.py`.
+2. Use `hypothesis` to generate random `name` and `steps`.
+3. Test that the `UpdateIngredient` mutation has the new `name` and `steps` generated, but all the other attributes match what was in the fixture.
