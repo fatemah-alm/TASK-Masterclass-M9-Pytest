@@ -9,10 +9,12 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+from email.policy import default
+from decouple import config
 from pathlib import Path
 
 import django_stubs_ext
+from dj_database_url import parse as db_url
 
 
 django_stubs_ext.monkeypatch()
@@ -30,7 +32,8 @@ SECRET_KEY = (
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config("DEBUG", cast=bool)
+DATABASES = {"default": config("DATABASE_URL", cast=db_url)}
 
 ALLOWED_HOSTS: list[str] = []
 
